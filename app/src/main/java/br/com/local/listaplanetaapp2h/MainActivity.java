@@ -1,6 +1,7 @@
 package br.com.local.listaplanetaapp2h;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(),VisualizaPlaneta_MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), VisualizaPlaneta_MainActivity.class);
                 //Passando valores de uma janela para outra
-                intent.putExtra("nomePlaneta",nomePlanetas[i]);
-                intent.putExtra("imagemPlaneta",imgPlanetas[i]);
+                intent.putExtra("nomePlaneta", nomePlanetas[i]);
+                intent.putExtra("imagemPlaneta", imgPlanetas[i]);
 
                 startActivity(intent);
 
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Montar o modelo para ser inserido na lista de planetas - ListView
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int position, View view, ViewGroup viewGroup) {
             TextView txtNomePlaneta;
             ImageView imagemPlaneta;
 
@@ -90,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
             //Carregando os valores nos componentes
 
-            txtNomePlaneta.setText(nomePlanetas[i]);
-            imagemPlaneta.setImageResource(imgPlanetas[i]);
+            txtNomePlaneta.setText(nomePlanetas[position]);
+            imagemPlaneta.setImageResource(imgPlanetas[position]);
 
             return carregaView;
         }

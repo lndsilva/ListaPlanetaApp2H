@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListaPlanetaApp2H">
-        <activity android:name=".VisualizaPlaneta_MainActivity"></activity>
+        <activity android:name=".ListaTesteActivity"></activity>
+        <activity android:name=".VisualizaPlaneta_MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
