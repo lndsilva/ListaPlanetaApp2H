@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //Declarar a variável que irá receber a ListView do XML
@@ -37,15 +38,26 @@ public class MainActivity extends AppCompatActivity {
 
         //Criar o objeto/classe que irá inserir o modelo na listView
 
-        CustomAdapter customAdapter = new CustomAdapter();
+        CustomAdapter adapter = new CustomAdapter();
 
         //Carregar o baseAdapter na listView
-        listView.setAdapter(customAdapter);
+        listView.setAdapter(adapter);
+
+        /*
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        "Cliquei no item da lista de nome: " + nomePlanetas[position],
+                        Toast.LENGTH_SHORT).show();
+            }
+        });*/
 
         //Criando evento de click na listView
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                 Intent intent = new Intent(getApplicationContext(), VisualizaPlaneta_MainActivity.class);
                 //Passando valores de uma janela para outra
                 intent.putExtra("nomePlaneta", nomePlanetas[i]);
